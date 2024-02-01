@@ -24,8 +24,13 @@
                         <p class="card-text"><strong>Orario di arrivo:</strong> {{ $train['arrival_time'] }}</p>
                         <p class="card-text"><strong>Codice Treno:</strong> {{ $train['train_code'] }}</p>
                         <p class="card-text"><strong>Numero Carrozze:</strong> {{ $train['number_of_carriages'] }}</p>
-                        <p class="card-text"><strong>In orario:</strong> {{ $train['is_on_time'] ? 'Si':'No'}}</p>
-                        <p class="card-text"><strong>Cancellato: </strong> {{ $train['is_canceled'] ? 'No':'Si'}}</p>
+                        @if ( $train['is_on_time'] === 1 )
+                            <p class="card-text"><strong>In orario:</strong>Si</p>
+                        @else
+                        <p class="card-text text-danger fw-bold">Treno cancellato</p>
+                        @endif
+                        
+                       
                     </div>
                 </div>
             @endforeach
